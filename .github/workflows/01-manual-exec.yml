@@ -1,0 +1,20 @@
+name: "Execução Manual"
+
+on:
+  # Gatilho manual
+  workflow_dispatch:
+
+jobs:
+  build:
+    #Máquina que executará o job
+    runs-on: ubuntu-latest
+
+    #Passo a passo do job
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Instalando Mocha
+        run: npm install -D mocha
+  
+      - name: Rodando os testes
+        run: npm test
